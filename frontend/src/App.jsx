@@ -1,11 +1,14 @@
 import LandingPage from './Components/LandingPage/LandingPage'
+import Home from './Route/Home'
 import './App.css'
 
 function App() {
 
   return (
     <div className="app">
-      <LandingPage />
+      <>
+        <div>This is HomePage</div>
+      </>
     </div>
   )
 }
