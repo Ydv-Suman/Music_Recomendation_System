@@ -1,16 +1,21 @@
-import LandingPage from './Components/LandingPage/LandingPage'
-import Home from './Route/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Login from './Components/Login'
+import Layout from './Components/Layout'
+import Explore from './Route/Explore'
 import './App.css'
 
 function App() {
-
   return (
-    <div className="app">
-      <>
-        <div>This is HomePage</div>
-      </>
-    </div>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Layout />} />
+          <Route path="/explore" element={<Explore />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
-export default App
+export default App;

@@ -1,8 +1,21 @@
-import logo from '../../assets/logo.png'
+import { useNavigate } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 function LandingPage() {
+    const navigate = useNavigate()
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        // add authentication
+        navigate('/home')
+    }
+
+    const handleCreateAccount = () => {
+        navigate('/home') // add create account feature
+    }
+
     return (
-        <div className="flex h-screen bg-gray-100">
+        <div className="flex h-screen">
             {/** logo side */}
             <div className="w-1/2 flex flex-col items-center justify-center text-center space-y-4">
                 <img
@@ -26,7 +39,7 @@ function LandingPage() {
                 <div className="border p-10 rounded-2xl shadow-md w-[400px] bg-white">
                     <h1 className="text-4xl font-semibold text-center mb-5 text-gray-800">Welcome!!!</h1>
 
-                    <form className="flex flex-col space-y-4">
+                    <form className="flex flex-col space-y-4" onSubmit={handleLogin}>
                         {/* Email */}
                         <div>
                             <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
@@ -58,6 +71,7 @@ function LandingPage() {
                         {/* Login Button */}
                         <button
                             type="submit"
+                            onClick={handleLogin}
                             className="mt-2 cursor-pointer bg-blue-300 hover:bg-blue-500 text-white font-semibold py-3 w-80 self-center rounded-md transition-all"
                         >
                             Login
@@ -76,13 +90,13 @@ function LandingPage() {
                         {/* Create Account */}
                         <button
                             type="button"
+                            onClick={handleCreateAccount}
                             className="mt-8 cursor-pointer bg-green-400 hover:bg-green-600 text-white font-semibold py-3 w-60 self-center rounded-md transition-all"
                         >
                             Create Account
                         </button>
                     </form>
                 </div>
-
             </div>
         </div>
     )
